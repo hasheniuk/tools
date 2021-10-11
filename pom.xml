@@ -20,6 +20,7 @@
         <jackson.databind.version>2.13.0</jackson.databind.version>
         <source.plugin.version>3.2.1</source.plugin.version>
         <javadoc.plugin.version>3.3.0</javadoc.plugin.version>
+        <gpg.plugin.version>3.0.1</gpg.plugin.version>
     </properties>
 
     <licenses>
@@ -80,6 +81,20 @@
                         <id>attach-javadocs</id>
                         <goals>
                             <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>${gpg.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
                         </goals>
                     </execution>
                 </executions>
